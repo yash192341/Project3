@@ -4,9 +4,11 @@ function onOpen(e) {
       .addToUi();
 }
 
+
 function onInstall(e) {
   onOpen(e);
 }
+
 
 
 function showSidebar() {
