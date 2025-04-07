@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 10px;
+        background-color: #f2f2f2;
+      }
+      input {
+        margin-top: 10px;
+        width: 122.5px;
+        border: 1.75px solid #bfbfbf;
+        border-radius: 6px;
+      }
+      button {
+        margin-top: 10px;
+        width: 265px;
+        background-color: #d9d9d9;
+        border: 1.75px solid #bfbfbf;
+        border-radius: 7px;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: #bfbfbf;
+      }
+      .deleteButton {
+        background-color: #c15552; 
+        color: #f2f2f2;
+        border: 1.75px solid #b22b27;
+      }
+      .deleteButton:hover {
+        cursor: pointer;
+        background-color: #b22b27;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Manage Linked List</h2>
+    <!--Display values from regex parsing instead of placeholder values-->
+    <h3 style='font-weight: normal;'>Current Values:</h3>
+    <h3 style='font-weight: normal; text-align: center;'>[2, 6, 7]</h3>
+
+    <!--add value inputs and button-->
+    <input type='text' id='addValueLinkedList' placeholder="Input Value..."/>
+    <input type='text' id='addValueAtLinkedList' placeholder="Input Value Before..."/>
+    <button onclick="addValueLinkedList()">Add</button>
+
+    <!--remove value button-->
+    <input type='text' id='removeValueLinkedList' placeholder="Input Value..."/>
+    <input type='text' id='removeValueAtLinkedList' placeholder="Input Value Before..."/>
+    <button onclick="removeValueLinkedList()">Remove</button>
+
+    <!--delete linked list button-->
+    <button class='deleteButton' onclick="deleteLinkedList()">Delete Linked List</button>
+
+    <script>
+      function addValueLinkedList() {
+        const val = document.getElementById('pushValueLinkedList').value;
+        // ADD VAL TO LINKED LIST
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById('response').textContent = response;
+        }).handleAddLinkedList(val);
+      }
+
+      function removeValueLinkedList() {
+        // POP VAL FROM LINKED LIST
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById('response').textContent = response;
+        }).handleRemoveLinkedList();
+      }
+
+      function deleteLinkedList() {
+        // DELETE LINKED LIST FROM DOC
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById('response').textContent = response;
+        }).handleDeleteLinkedList();
+      }
+    </script>
+  </body>
+</html>

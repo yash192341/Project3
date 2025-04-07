@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 10px;
+        background-color: #f2f2f2;
+      }
+      input {
+        margin-top: 10px;
+        width: 257px;
+        border: 1.75px solid #bfbfbf;
+        border-radius: 6px;
+      }
+      button {
+        margin-top: 10px;
+        width: 265px;
+        background-color: #d9d9d9;
+        border: 1.75px solid #bfbfbf;
+        border-radius: 7px;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: #bfbfbf;
+      }
+      .deleteButton {
+        background-color: #c15552; 
+        color: #f2f2f2;
+        border: 1.75px solid #b22b27;
+      }
+      .deleteButton:hover {
+        cursor: pointer;
+        background-color: #b22b27;
+      }
+      .halfButton {
+        width: 129.75px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Manage Binary Search Tree</h2>
+    <!--Display values from regex parsing instead of placeholder values-->
+    <h3 style='font-weight: normal;'>Current Values:</h3>
+    <h3 style='font-weight: normal; text-align: center;'>[2, 6, 7]</h3>
+
+    <!--add value input and button-->
+    <input type='text' id='addValueBST' placeholder="Input Value..."/>
+    <button onclick="addValueBST()">Add</button>
+
+    <!--remove value input and button-->
+    <input type='text' id='removeValueBST' placeholder='Input Value...'/>
+    <button onclick="removeValueBST()">Remove</button>
+
+    <!--sort values by buttons-->
+    <button class='halfButton' onclick="sortMaxBST()">Sort By Max</button>
+    <button class='halfButton' onclick="sortMinBST()">Sort By Min</button>
+
+    <!--delete binary search tree button-->
+    <button class='deleteButton' onclick="deleteBST()">Delete Binary Search Tree</button>
+
+    <script>
+      function addValueBST() {
+        const val = document.getElementById('pushValueBST').value;
+        // ADD VAL TO BST
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById('response').textContent = response;
+        }).handleAddBST(val);
+      }
+
+      function removeValueBST() {
+        // POP VAL FROM BST
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById('response').textContent = response;
+        }).handleRemoveBST();
+      }
+
+      function deleteLinkedList() {
+        // DELETE LINKED LIST FROM DOC
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById('response').textContent = response;
+        }).handleDeleteLinkedList();
+      }
+    </script>
+  </body>
+</html>

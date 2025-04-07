@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 10px;
+        background-color: #f2f2f2;
+      }
+      input {
+        margin-top: 10px;
+        width: 257px;
+        border: 1.9px solid #bfbfbf;
+        border-radius: 6px;
+      }
+      button {
+        margin-top: 10px;
+        width: 265px;
+        background-color: #d9d9d9;
+        border: 1.9px solid #bfbfbf;
+        border-radius: 7px;
+      }
+      button:hover {
+        cursor: pointer;
+        background-color: #bfbfbf;
+      }
+      .deleteButton {
+        background-color: #c15552; 
+        color: #f2f2f2;
+        border: 1.9px solid #b22b27;
+      }
+      .deleteButton:hover {
+        cursor: pointer;
+        background-color: #b22b27;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Manage Stack</h2>
+    <!--Display values from regex parsing instead of placeholder values-->
+    <h3 style='font-weight: normal; '>Current Values:</h3>
+    <h3 style='font-weight: normal; text-align: center;'>[2, 6, 7]</h3>
+
+    <!--push value input and button-->
+    <input type='text' id='pushValueStack' placeholder="Input Value..." />
+    <button onclick="pushValueStack()">Push</button>
+
+    <!--pop value button-->
+    <button onclick="popValueStack()">Pop</button>
+
+    <!--delete stack button-->
+    <button class='deleteButton' onclick="deleteStack()">Delete Stack</button>
+
+    <script>
+      function pushValueStack() {
+        const val = document.getElementById('pushValueStack').value;
+        // ADD VAL TO STACK
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById('response').textContent = response;
+        }).handlePushStack(val);
+      }
+
+      function popValueStack() {
+        // POP VAL FROM STACK
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById('response').textContent = response;
+        }).handlePopStack();
+      }
+
+      function deleteStack() {
+        // DELETE STACK FROM DOC
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById('response').textContent = response;
+        }).handleDeleteStack();
+      }
+    </script>
+  </body>
+</html>
