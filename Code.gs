@@ -11,7 +11,8 @@ function onOpen() {
 
 function showSidebar() {
   // loads sidebar.html
-  const html = HtmlService.createHtmlOutputFromFile('bstSidebar')
+  // CHANCE 'stackSidebar' TO SEE OTHER SIDEBARS
+  const html = HtmlService.createHtmlOutputFromFile('stackSidebar')
     .setTitle('InStruct')
     .setWidth(300);
 
