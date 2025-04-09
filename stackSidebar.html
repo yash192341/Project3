@@ -48,8 +48,12 @@
     <!--pop value button-->
     <button onclick="popValueStack()">Pop</button>
 
+    <!-- preview button -->
+    <button onclick="openDialog()">Preview</button>
+
     <!--delete stack button-->
     <button class='deleteButton' onclick="deleteStack()">Delete Stack</button>
+
 
     <script>
       function pushValueStack() {
@@ -73,6 +77,12 @@
           document.getElementById('response').textContent = response;
         }).handleDeleteStack();
       }
+
+      function openDialog() {
+        google.script.run.showDialog(); // THIS is the key line!
+      }
+
+
     </script>
   </body>
 </html>

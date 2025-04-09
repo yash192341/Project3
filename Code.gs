@@ -8,7 +8,6 @@ function onOpen() {
     .addToUi();
 }
 
-
 function showSidebar() {
   // loads sidebar.html
   // CHANCE 'stackSidebar' TO SEE OTHER SIDEBARS
@@ -18,6 +17,14 @@ function showSidebar() {
 
   // displays sidebar.html to google docs
   DocumentApp.getUi().showSidebar(html);
+}
+
+
+function showDialog() {
+  const html = HtmlService.createHtmlOutputFromFile('dialog')
+    .setWidth(400)
+    .setHeight(300);
+  DocumentApp.getUi().showModalDialog(html, 'Preview Dialog');
 }
 
 // STACK HANDLERS

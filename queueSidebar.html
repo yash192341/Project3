@@ -48,6 +48,9 @@
     <!--pop value button-->
     <button onclick="popValueQueue()">Pop</button>
 
+    <!-- preview button -->
+    <button onclick="openDialog()">Preview</button>
+
     <!--delete queue button-->
     <button class='deleteButton' onclick="deleteQueue()">Delete Queue</button>
 
@@ -73,6 +76,11 @@
           document.getElementById('response').textContent = response;
         }).handleDeleteQueue();
       }
+
+      function openDialog() {
+        google.script.run.showDialog(); // THIS is the key line!
+      }
+
     </script>
   </body>
 </html>

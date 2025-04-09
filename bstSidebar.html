@@ -56,6 +56,9 @@
     <button class='halfButton' onclick="sortMaxBST()">Sort By Max</button>
     <button class='halfButton' onclick="sortMinBST()">Sort By Min</button>
 
+    <!-- preview button -->
+    <button onclick="openDialog()">Preview</button>
+
     <!--delete binary search tree button-->
     <button class='deleteButton' onclick="deleteBST()">Delete Binary Search Tree</button>
 
@@ -81,6 +84,11 @@
           document.getElementById('response').textContent = response;
         }).handleDeleteLinkedList();
       }
+
+      function openDialog() {
+        google.script.run.showDialog(); // THIS is the key line!
+      }
+
     </script>
   </body>
 </html>

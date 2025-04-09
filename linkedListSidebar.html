@@ -51,6 +51,9 @@
     <input type='text' id='removeValueAtLinkedList' placeholder="Input Value Before..."/>
     <button onclick="removeValueLinkedList()">Remove</button>
 
+    <!-- preview button -->
+    <button onclick="openDialog()">Preview</button>
+
     <!--delete linked list button-->
     <button class='deleteButton' onclick="deleteLinkedList()">Delete Linked List</button>
 
@@ -76,6 +79,11 @@
           document.getElementById('response').textContent = response;
         }).handleDeleteLinkedList();
       }
+
+      function openDialog() {
+        google.script.run.showDialog(); // THIS is the key line!
+      }
+
     </script>
   </body>
 </html>
