@@ -3,92 +3,108 @@
   <head>
     <style>
       body {
-        font-family: Arial, sans-serif;
-        padding: 10px;
-        background-color: #f2f2f2;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fafafa;
+        padding: 0;
+        margin: 0;
       }
+
+      .container {
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        margin-top: 0;
+        color: #333;
+      }
+
+      h3 {
+        font-weight: normal;
+        color: #666;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .structure-values {
+        font-size: 16px;
+        font-weight: bold;
+        color: #4285F4;
+        background-color: #f0f7ff;
+        padding: 8px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        text-align: center;
+        border: 1px solid #d0e4ff;
+      }
+
       input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
         margin-top: 10px;
-        width: 257px;
-        border: 1.75px solid #bfbfbf;
-        border-radius: 5px;
+        border: 1.5px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.2s;
       }
+
+      input:focus {
+        outline: none;
+        border-color: #4285F4;
+      }
+
       button {
+        width: 100%;
+        padding: 10px;
         margin-top: 10px;
-        width: 265px;
-        background-color: #d9d9d9;
-        border: 1.75px solid #bfbfbf;
-        border-radius: 5px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        background-color: #e0e0e0;
+        color: #333;
+        transition: background-color 0.2s, color 0.2s;
       }
+
       button:hover {
+        background-color: #d0d0d0;
         cursor: pointer;
-        background-color: #bfbfbf;
       }
+
       .deleteButton {
-        background-color: #c15552; 
-        color: #f2f2f2;
-        border: 1.75px solid #b22b27;
+        background-color: #c15552;
+        color: #fff;
       }
+
       .deleteButton:hover {
-        cursor: pointer;
         background-color: #b22b27;
       }
-      .halfButton {
-        width: 129.75px;
+
+      .response {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 13px;
+        color: #777;
       }
     </style>
   </head>
   <body>
-    <h2>Manage Binary Search Tree</h2>
-    <!--Display values from regex parsing instead of placeholder values-->
-    <h3 style='font-weight: normal;'>Current Values:</h3>
-    <h3 style='font-weight: normal; text-align: center;'>[2, 6, 7]</h3>
+    <div class="container">
+      <h2>Manage Binary Search Tree</h2>
 
-    <!--add value input and button-->
-    <input type='text' id='addValueBST' placeholder="Input Value..."/>
-    <button onclick="addValueBST()">Add</button>
+      <h3>Current Tree:</h3>
+      <div class="structure-values" id="treeDisplay">Loading...</div>
 
-    <!--remove value input and button-->
-    <input type='text' id='removeValueBST' placeholder='Input Value...'/>
-    <button onclick="removeValueBST()">Remove</button>
+      <input type="text" id="valueTree" placeholder="Input Value..." />
+      <button onclick="runOperation('insert')">Insert</button>
+      <button onclick="runOperation('remove')">Remove</button>
+      <button onclick="openTreeDialog()">Preview</button>
+      <button class="deleteButton" onclick="deleteTree()">Delete Tree</button>
 
-    <!--sort values by buttons-->
-    <button class='halfButton' onclick="sortMaxBST()">Sort By Max</button>
-    <button class='halfButton' onclick="sortMinBST()">Sort By Min</button>
-
-    <!-- preview button -->
-    <button onclick="openDialog()">Preview</button>
-
-    <!--delete binary search tree button-->
-    <button class='deleteButton' onclick="deleteBST()">Delete Binary Search Tree</button>
-
-    <script>
-      function addValueBST() {
-        const val = document.getElementById('pushValueBST').value;
-        // ADD VAL TO BST
-        google.script.run.withSuccessHandler(function(response) {
-          document.getElementById('response').textContent = response;
-        }).handleAddBST(val);
-      }
-
-      function removeValueBST() {
-        // POP VAL FROM BST
-        google.script.run.withSuccessHandler(function(response) {
-          document.getElementById('response').textContent = response;
-        }).handleRemoveBST();
-      }
-
-      function deleteLinkedList() {
-        // DELETE LINKED LIST FROM DOC
-        google.script.run.withSuccessHandler(function(response) {
-          document.getElementById('response').textContent = response;
-        }).handleDeleteLinkedList();
-      }
-
-      function openDialog() {
-        google.script.run.showDialog(); // THIS is the key line!
-      }
-
-    </script>
+      <div class="response" id="response"></div>
+    </div>
   </body>
 </html>
